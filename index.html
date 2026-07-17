@@ -13,14 +13,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vnugny.github.io/">
 <meta property="og:title" content="Venu Kurella · Staff / Principal Data Engineer">
-<meta property="og:description" content="21 years building enterprise financial-data platforms. Snowflake · Spark · Kafka · Airflow · data quality. 7 public, CI-verified projects.">
+<meta property="og:description" content="21 years building enterprise financial-data platforms. Creator of Quants, a live AI-native risk engine. Snowflake · Spark · Kafka · data quality. 7 public, CI-verified projects.">
 <meta property="og:image" content="https://vnugny.github.io/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Venu Kurella — Staff / Principal Data Engineer, Data Platform Architect">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Venu Kurella · Staff / Principal Data Engineer">
-<meta name="twitter:description" content="21 years building enterprise financial-data platforms. 7 public, CI-verified projects.">
+<meta name="twitter:description" content="21 years building enterprise financial-data platforms. Creator of Quants, a live AI-native risk engine. 7 public, CI-verified projects.">
 <meta name="twitter:image" content="https://vnugny.github.io/og-image.png">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%234f46e5%22/><text x=%2250%22 y=%2269%22 font-size=%2250%22 font-family=%22Arial,sans-serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>VK</text></svg>">
@@ -155,6 +155,21 @@
   .tag{background:var(--chip);color:var(--muted);font-size:11.5px;padding:3px 9px;border-radius:20px;font-weight:600}
   .card .foot{font-size:13px;font-weight:600}
 
+  /* flagship */
+  .flagship{border-radius:16px;padding:24px 26px;box-shadow:var(--shadow);
+    background:linear-gradient(var(--surface),var(--surface)) padding-box,
+      linear-gradient(120deg,var(--accent),var(--accent2)) border-box;border:1.5px solid transparent}
+  .flag-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .flag-head h3{margin:0;font-size:1.35rem}
+  .live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.08em;
+    color:#10b981;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.4);padding:3px 10px;border-radius:20px}
+  .live .dot{width:7px;height:7px;border-radius:50%;background:#10b981;animation:pulse 2s infinite}
+  @media (prefers-reduced-motion:reduce){.live .dot{animation:none}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+  .flagship p{color:var(--muted);margin:12px 0 14px;font-size:15px}
+  .flag-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .flag-note{font-size:12.5px;color:var(--muted)}
+
   /* case study */
   .case{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
     border-radius:14px;padding:22px 24px;box-shadow:var(--shadow)}
@@ -215,18 +230,41 @@
   <p class="tag">21 years building reliable batch &amp; streaming data platforms — and the quality,
      observability, infrastructure, and self-service tooling around them — for global financial institutions.</p>
   <div class="cta">
-    <a class="btn primary" href="#portfolio">View portfolio</a>
+    <a class="btn primary" href="#flagship">View portfolio</a>
+    <a class="btn" href="https://quants-riskengine.com" target="_blank" rel="noopener">Quants (live) ↗</a>
     <a class="btn" href="./resume.html">Résumé</a>
     <a class="btn" href="https://github.com/vnugny" target="_blank" rel="noopener">GitHub</a>
     <a class="btn" href="https://www.linkedin.com/in/venu-gopal-kurella-79094617/" target="_blank" rel="noopener">LinkedIn</a>
   </div>
   <div class="badges">
     <div class="stat"><b>21+</b><span>years in data</span></div>
+    <div class="stat"><b>1</b><span>live product shipped</span></div>
     <div class="stat"><b>7</b><span>public CI-green repos</span></div>
     <div class="stat"><b>~60%</b><span>fewer data incidents*</span></div>
     <div class="stat"><b>13</b><span>engineers led</span></div>
   </div>
 </div></header>
+
+<section id="flagship"><div class="wrap reveal">
+  <h2>Flagship — a live product</h2>
+  <p class="lead">Beyond the open-source portfolio, I designed, built, and deployed a real product end-to-end.</p>
+  <div class="flagship">
+    <div class="flag-head">
+      <span class="live"><span class="dot"></span>LIVE</span>
+      <h3>Quants — AI-native risk engine</h3>
+    </div>
+    <p>Ask risk questions in plain English and get institutional-grade analytics back. Quants connects
+       real risk models — VaR/CVaR, factor risk, stress testing, portfolio optimization, options Greeks —
+       to a large language model via Anthropic's Model Context Protocol (MCP), exposing <b>43 analytics
+       tools</b> alongside an <b>11-tab</b> interactive dashboard and an ML / forecasting / regime layer.
+       Designed, built, deployed, and operated end-to-end.</p>
+    <div class="tags"><span class="tag">MCP (Anthropic)</span><span class="tag">Risk · VaR/CVaR</span><span class="tag">Options Greeks</span><span class="tag">Portfolio optimization</span><span class="tag">LLM tool-use</span><span class="tag">Python</span><span class="tag">Streamlit</span></div>
+    <div class="flag-cta">
+      <a class="btn primary" href="https://quants-riskengine.com" target="_blank" rel="noopener">Visit quants-riskengine.com →</a>
+      <span class="flag-note">Live SaaS · source private</span>
+    </div>
+  </div>
+</div></section>
 
 <section id="about"><div class="wrap reveal">
   <h2>About</h2>
