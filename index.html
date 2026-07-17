@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venu Kurella · Data Platform Architect</title>
+<meta name="description" content="Venu Kurella — Staff / Principal Data Engineer & Data Platform Architect. 21 years building enterprise financial-data platforms. Snowflake, Spark, Kafka, Airflow, data quality.">
+<style>
+  :root{
+    --bg:#f7f8fa; --surface:#ffffff; --text:#1a2230; --muted:#5b6676;
+    --border:#e5e8ee; --accent:#4f46e5; --accent2:#0ea5a4; --chip:#eef1f7;
+    --shadow:0 1px 3px rgba(20,30,50,.06),0 8px 24px rgba(20,30,50,.06);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0d1017; --surface:#141924; --text:#e6eaf2; --muted:#9aa6b8;
+      --border:#232b39; --accent:#818cf8; --accent2:#2dd4bf; --chip:#1c2432;
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  nav .brand{font-weight:700}
+  nav .links a{color:var(--muted);margin-left:18px;font-size:14px;font-weight:500}
+  nav .links a:hover{color:var(--text);text-decoration:none}
+  @media(max-width:640px){nav .links a:nth-child(-n+2){display:none}}
+  /* hero */
+  header.hero{padding:72px 0 40px;text-align:center}
+  .hero h1{font-size:clamp(2rem,6vw,3.1rem);margin:0 0 8px;letter-spacing:-.02em}
+  .hero .role{font-size:clamp(1rem,3vw,1.3rem);color:var(--text);font-weight:600}
+  .hero .role .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero .tag{color:var(--muted);margin:14px auto 0;max-width:640px}
+  .cta{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:10px 18px;border-radius:10px;font-weight:600;font-size:14px;
+    border:1px solid var(--border);background:var(--surface);color:var(--text)}
+  .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+  .btn:hover{text-decoration:none;transform:translateY(-1px);transition:transform .15s}
+  /* sections */
+  section{padding:44px 0;border-top:1px solid var(--border)}
+  section h2{font-size:1.5rem;margin:0 0 6px;letter-spacing:-.01em}
+  section .lead{color:var(--muted);margin:0 0 26px;max-width:720px}
+  .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+    padding:12px 18px;box-shadow:var(--shadow);text-align:center;min-width:120px}
+  .stat b{display:block;font-size:1.5rem;color:var(--accent)}
+  .stat span{font-size:12px;color:var(--muted)}
+  /* about */
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:8px}
+  .pillar{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+  .pillar .ico{font-size:1.3rem}
+  .pillar b{display:block;margin:6px 0 2px}
+  .pillar span{color:var(--muted);font-size:14px}
+  /* portfolio */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .card h3{margin:0 0 4px;font-size:1.05rem}
+  .card h3 a{color:var(--text)}
+  .card p{color:var(--muted);font-size:14px;margin:0 0 12px;flex:1}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .tag{background:var(--chip);color:var(--muted);font-size:11.5px;padding:3px 9px;border-radius:20px;
+    font-weight:600}
+  .card .foot{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600}
+  /* experience */
+  .tl{list-style:none;padding:0;margin:0}
+  .tl li{display:flex;gap:16px;padding:12px 0;border-bottom:1px dashed var(--border)}
+  .tl li:last-child{border-bottom:0}
+  .tl .when{color:var(--muted);font-size:13px;min-width:140px;white-space:nowrap}
+  .tl .what b{display:block}
+  .tl .what span{color:var(--muted);font-size:14px}
+  /* skills */
+  .skills{display:grid;gap:12px}
+  .skillrow{display:grid;grid-template-columns:170px 1fr;gap:12px;align-items:start}
+  .skillrow .k{font-weight:700;font-size:14px}
+  .skillrow .v{display:flex;gap:6px;flex-wrap:wrap}
+  @media(max-width:560px){.skillrow{grid-template-columns:1fr}}
+  /* footer */
+  footer{padding:48px 0 60px;text-align:center;border-top:1px solid var(--border)}
+  footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+  footer small{color:var(--muted);display:block;margin-top:22px}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <span class="brand">Venu Kurella</span>
+  <span class="links">
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </span>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1>Venu Kurella</h1>
+  <div class="role"><span class="grad">Staff / Principal Data Engineer · Data Platform Architect</span></div>
+  <p class="tag">21 years building reliable batch &amp; streaming data platforms — and the quality,
+     observability, infrastructure, and self-service tooling around them — for global financial institutions.</p>
+  <div class="cta">
+    <a class="btn primary" href="#portfolio">View portfolio</a>
+    <a class="btn" href="https://github.com/vnugny" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/venu-gopal-kurella-79094617/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="mailto:venugkurella@gmail.com">Email</a>
+  </div>
+  <div class="badges">
+    <div class="stat"><b>21+</b><span>years in data</span></div>
+    <div class="stat"><b>7</b><span>public CI-green repos</span></div>
+    <div class="stat"><b>~60%</b><span>fewer data incidents*</span></div>
+    <div class="stat"><b>13</b><span>engineers led</span></div>
+  </div>
+</div></header>
+
+<section id="about"><div class="wrap">
+  <h2>About</h2>
+  <p class="lead">I design, build, and govern enterprise-scale data platforms where correctness,
+    lineage, validation, and regulatory confidence are the whole job. Currently at Bloomberg;
+    previously Credit Suisse, Wells Fargo, HPE, Cox Automotive, and Franklin Templeton. I operate
+    at the staff/principal level — setting engineering standards and owning architecture across
+    teams — while staying hands-on in the codebase.</p>
+  <div class="pillars">
+    <div class="pillar"><div class="ico">🏛️</div><b>Regulated financial data</b><span>Dodd-Frank / FDIC, credit risk, MDM, reconciliation, auditability</span></div>
+    <div class="pillar"><div class="ico">🔧</div><b>Hands-on platform engineering</b><span>Spark, Kafka, Airflow, Snowflake, Delta Lake, Terraform</span></div>
+    <div class="pillar"><div class="ico">🔍</div><b>Data quality &amp; observability</b><span>Great Expectations, OpenLineage, anomaly detection, SLA monitoring</span></div>
+    <div class="pillar"><div class="ico">🧭</div><b>Architecture &amp; influence</b><span>standards-setting, reviews, mentoring, stakeholder alignment</span></div>
+  </div>
+</div></section>
+
+<section id="portfolio"><div class="wrap">
+  <h2>Modern Data Platform Portfolio</h2>
+  <p class="lead">Seven public, CI-verified projects that fit together as one platform — infrastructure
+    provisions the runtime, a self-service layer generates pipelines, batch &amp; streaming pipelines
+    move the data, a quality layer watches them, and a cost optimizer keeps the warehouse honest.
+    Every project runs end-to-end and is verified in CI (~190 tests total).</p>
+  <div class="grid">
+    <div class="card">
+      <h3><a href="https://github.com/vnugny/data-lakehouse-pipeline" target="_blank" rel="noopener">data-lakehouse-pipeline</a></h3>
+      <p>End-to-end batch medallion (bronze→silver→gold) with idempotent transforms and gold↔silver reconciliation, run for real in CI.</p>
+      <div class="tags"><span class="tag">Airflow</span><span class="tag">PySpark</span><span class="tag">Delta Lake</span><span class="tag">dbt</span><span class="tag">Trino</span></div>
+      <div class="foot"><a href="https://github.com/vnugny/data-lakehouse-pipeline" target="_blank" rel="noopener">Repo →</a></div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/vnugny/realtime-streaming-system" target="_blank" rel="noopener">realtime-streaming-system</a></h3>
+      <p>Event-time streaming with windowing, watermarks, and anomaly detection; full containerized path proven end-to-end in CI.</p>
+      <div class="tags"><span class="tag">Kafka</span><span class="tag">Spark Streaming</span><span class="tag">ClickHouse</span><span class="tag">Grafana</span></div>
+      <div class="foot"><a href="https://github.com/vnugny/realtime-streaming-system" target="_blank" rel="noopener">Repo →</a></div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/vnugny/realtime-options-flow" target="_blank" rel="noopener">realtime-options-flow</a></h3>
+      <p>The streaming architecture over <b>real options trades</b> — per-underlying flow, block/skew anomalies; dual live-Polygon / synthetic source so it runs keyless in CI.</p>
+      <div class="tags"><span class="tag">Kafka</span><span class="tag">Spark</span><span class="tag">ClickHouse</span><span class="tag">Polygon WS</span></div>
+      <div class="foot"><a href="https://github.com/vnugny/realtime-options-flow" target="_blank" rel="noopener">Repo →</a></div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/vnugny/data-quality-observability" target="_blank" rel="noopener">data-quality-observability</a></h3>
+      <p>Validation, column-level lineage, statistical anomaly detection, and SLA alerting layered onto the lakehouse.</p>
+      <div class="tags"><span class="tag">Great Expectations</span><span class="tag">OpenLineage</span><span class="tag">Elementary</span><span class="tag">Slack</span></div>
+      <div class="foot"><a href="https://github.com/vnugny/data-quality-observability" target="_blank" rel="noopener">Repo →</a></div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/vnugny/self-service-data-platform" target="_blank" rel="noopener">self-service-data-platform</a></h3>
+      <p>Platform tooling other engineers consume: Jinja pipeline scaffolding, a Delta catalog + scanner, and reusable connectors.</p>
+      <div class="tags"><span class="tag">Click CLI</span><span class="tag">FastAPI</span><span class="tag">Jinja2</span><span class="tag">Delta</span></div>
+      <div class="foot"><a href="https://github.com/vnugny/self-service-data-platform" target="_blank" rel="noopener">Repo →</a></div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/vnugny/data-platform-iac" target="_blank" rel="noopener">data-platform-iac</a></h3>
+      <p>Platform ownership beyond pipeline code: reusable AWS Terraform modules (MSK/RDS/Redshift/S3) plus a one-command local stack.</p>
+      <div class="tags"><span class="tag">Terraform</span><span class="tag">Docker Compose</span><span class="tag">AWS</span><span class="tag">MinIO</span></div>
+      <div class="foot"><a href="https://github.com/vnugny/data-platform-iac" target="_blank" rel="noopener">Repo →</a></div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/vnugny/data-cost-optimizer" target="_blank" rel="noopener">data-cost-optimizer</a></h3>
+      <p>FinOps for the warehouse: sqlglot anti-pattern analysis, cross-engine cost estimates, partition/Z-order advice, and benchmarks.</p>
+      <div class="tags"><span class="tag">sqlglot</span><span class="tag">DuckDB</span><span class="tag">Spark</span><span class="tag">Streamlit</span></div>
+      <div class="foot"><a href="https://github.com/vnugny/data-cost-optimizer" target="_blank" rel="noopener">Repo →</a></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <p class="lead">21 years across global financial institutions and Fortune 500 firms.</p>
+  <ul class="tl">
+    <li><span class="when">Nov 2022 – Present</span><span class="what"><b>Senior Engineer — Bloomberg L.P.</b><span>Enterprise data-quality platform (Great Expectations across PostgreSQL, Snowflake, Kafka, S3): ~60% fewer data incidents, &gt;95% validation pass rates.</span></span></li>
+    <li><span class="when">Dec 2021 – Oct 2022</span><span class="what"><b>Snowflake Architect — Cox Automotive</b><span>Multi-zone Snowflake data lake at petabyte scale.</span></span></li>
+    <li><span class="when">Dec 2020 – Dec 2021</span><span class="what"><b>Snowflake Architect — Hewlett Packard Enterprise</b><span>Unified global partner systems; delivered 16 partner-experience IT projects.</span></span></li>
+    <li><span class="when">Sep 2018 – Dec 2020</span><span class="what"><b>Senior Data Engineer — Wells Fargo Bank</b><span>ETL architecture across 9 regulated data domains for a Dodd-Frank / FDIC program.</span></span></li>
+    <li><span class="when">May 2018 – Sep 2018</span><span class="what"><b>Big Data Consultant — PVH Corp</b><span>Hadoop/Hive KPI systems at petabyte scale; real-time ingestion to Snowflake.</span></span></li>
+    <li><span class="when">Jun 2010 – Apr 2018</span><span class="what"><b>AVP / Consultant — Credit Suisse</b> <span>(Bangalore &amp; Singapore)</span><span>MDM &amp; data-quality lead for a global credit-risk platform (3M+ trades/day, 300+ feeds); led a 13-engineer team.</span></span></li>
+    <li><span class="when">Nov 2006 – Jun 2010</span><span class="what"><b>Software Analyst — Franklin Templeton Investments</b><span>Global mutual-fund enterprise data warehouse; star-schema modeling and ETL tuning.</span></span></li>
+    <li><span class="when">May 2005 – Oct 2006</span><span class="what"><b>Senior Software Engineer — Lionbridge (Merck &amp; Co.)</b><span>Centralized customer master; automated 12 regulatory licensing processes.</span></span></li>
+  </ul>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Technical skills</h2>
+  <div class="skills">
+    <div class="skillrow"><div class="k">Data platforms</div><div class="v"><span class="tag">Snowflake</span><span class="tag">Redshift</span><span class="tag">Delta Lake</span><span class="tag">ClickHouse</span><span class="tag">Trino</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">Teradata</span></div></div>
+    <div class="skillrow"><div class="k">Processing</div><div class="v"><span class="tag">Spark / PySpark</span><span class="tag">Spark Structured Streaming</span><span class="tag">Kafka</span><span class="tag">dbt</span><span class="tag">Airflow</span></div></div>
+    <div class="skillrow"><div class="k">Quality &amp; governance</div><div class="v"><span class="tag">Great Expectations</span><span class="tag">OpenLineage</span><span class="tag">Informatica IDQ/MDM</span><span class="tag">anomaly detection</span><span class="tag">SLA monitoring</span></div></div>
+    <div class="skillrow"><div class="k">Platform &amp; infra</div><div class="v"><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">AWS (S3/MSK/EMR/Glue/Redshift)</span><span class="tag">FastAPI</span><span class="tag">GitHub Actions</span></div></div>
+    <div class="skillrow"><div class="k">Languages</div><div class="v"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">PL/SQL</span><span class="tag">Shell</span></div></div>
+    <div class="skillrow"><div class="k">Domains</div><div class="v"><span class="tag">Capital markets</span><span class="tag">Credit risk</span><span class="tag">Regulatory reporting</span><span class="tag">Trades / positions / collateral</span></div></div>
+  </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <h2>Let's talk</h2>
+  <p class="lead" style="margin:8px auto 0">Open to <b>Staff / Principal / Senior Data Engineer</b> and
+    <b>Data Platform Architect</b> roles. Glad to talk data platforms, streaming, data quality, or financial-data systems.</p>
+  <div class="links">
+    <a href="mailto:venugkurella@gmail.com">📧 venugkurella@gmail.com</a>
+    <a href="https://www.linkedin.com/in/venu-gopal-kurella-79094617/" target="_blank" rel="noopener">💼 LinkedIn</a>
+    <a href="https://github.com/vnugny" target="_blank" rel="noopener">💻 github.com/vnugny</a>
+  </div>
+  <small>* ~60% data-incident reduction and &gt;95% validation pass rates measured at Bloomberg. Detailed resume available on request.</small>
+</div></footer>
+</body>
+</html>
