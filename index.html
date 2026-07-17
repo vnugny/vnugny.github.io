@@ -5,17 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Venu Kurella · Data Platform Architect</title>
 <meta name="description" content="Venu Kurella — Staff / Principal Data Engineer & Data Platform Architect. 21 years building enterprise financial-data platforms. Snowflake, Spark, Kafka, Airflow, data quality.">
+<link rel="canonical" href="https://vnugny.github.io/">
+<meta name="author" content="Venu Kurella">
+<meta name="theme-color" content="#0d1017">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vnugny.github.io/">
+<meta property="og:title" content="Venu Kurella · Staff / Principal Data Engineer">
+<meta property="og:description" content="21 years building enterprise financial-data platforms. Snowflake · Spark · Kafka · Airflow · data quality. 7 public, CI-verified projects.">
+<meta property="og:image" content="https://vnugny.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Venu Kurella — Staff / Principal Data Engineer, Data Platform Architect">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Venu Kurella · Staff / Principal Data Engineer">
+<meta name="twitter:description" content="21 years building enterprise financial-data platforms. 7 public, CI-verified projects.">
+<meta name="twitter:image" content="https://vnugny.github.io/og-image.png">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%234f46e5%22/><text x=%2250%22 y=%2269%22 font-size=%2250%22 font-family=%22Arial,sans-serif%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>VK</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Venu Kurella",
+  "jobTitle":"Staff / Principal Data Engineer · Data Platform Architect",
+  "url":"https://vnugny.github.io",
+  "email":"mailto:venugkurella@gmail.com",
+  "sameAs":["https://github.com/vnugny","https://www.linkedin.com/in/venu-gopal-kurella-79094617/"],
+  "knowsAbout":["Data Engineering","Apache Spark","Apache Kafka","Snowflake","Data Quality","Apache Airflow","Delta Lake","Terraform","AWS","Streaming Data","Data Platform Architecture"],
+  "worksFor":{"@type":"Organization","name":"Bloomberg L.P."},
+  "alumniOf":"M.S. Computer Science"
+}
+</script>
+
+<script>
+  // set theme before paint to avoid flash
+  (function(){document.documentElement.classList.add('js');
+   try{var t=localStorage.getItem('theme'); if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+
 <style>
   :root{
     --bg:#f7f8fa; --surface:#ffffff; --text:#1a2230; --muted:#5b6676;
     --border:#e5e8ee; --accent:#4f46e5; --accent2:#0ea5a4; --chip:#eef1f7;
     --shadow:0 1px 3px rgba(20,30,50,.06),0 8px 24px rgba(20,30,50,.06);
+    --dot:rgba(79,70,229,.09);
   }
   @media (prefers-color-scheme:dark){
-    :root{ --bg:#0d1017; --surface:#141924; --text:#e6eaf2; --muted:#9aa6b8;
+    :root:not([data-theme="light"]){ --bg:#0d1017; --surface:#141924; --text:#e6eaf2; --muted:#9aa6b8;
       --border:#232b39; --accent:#818cf8; --accent2:#2dd4bf; --chip:#1c2432;
-      --shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); }
+      --shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --dot:rgba(129,140,248,.10); }
   }
+  :root[data-theme="dark"]{ --bg:#0d1017; --surface:#141924; --text:#e6eaf2; --muted:#9aa6b8;
+    --border:#232b39; --accent:#818cf8; --accent2:#2dd4bf; --chip:#1c2432;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); --dot:rgba(129,140,248,.10); }
+
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--text);
@@ -24,52 +70,102 @@
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
   .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+
+  /* reveal */
+  .js .reveal{opacity:0;transform:translateY(16px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+  @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none}}
+
   /* nav */
-  nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
   nav .brand{font-weight:700}
+  nav .right{display:flex;align-items:center;gap:6px}
   nav .links a{color:var(--muted);margin-left:18px;font-size:14px;font-weight:500}
   nav .links a:hover{color:var(--text);text-decoration:none}
-  @media(max-width:640px){nav .links a:nth-child(-n+2){display:none}}
+  #themeBtn{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:8px;
+    width:34px;height:34px;cursor:pointer;font-size:15px;margin-left:14px;line-height:1}
+  #themeBtn:hover{border-color:var(--accent)}
+  @media(max-width:680px){nav .links a:nth-child(-n+3){display:none}}
+
   /* hero */
-  header.hero{padding:72px 0 40px;text-align:center}
-  .hero h1{font-size:clamp(2rem,6vw,3.1rem);margin:0 0 8px;letter-spacing:-.02em}
-  .hero .role{font-size:clamp(1rem,3vw,1.3rem);color:var(--text);font-weight:600}
+  header.hero{position:relative;padding:76px 0 46px;text-align:center;overflow:hidden}
+  header.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(60% 55% at 50% 0%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%),
+      radial-gradient(var(--dot) 1px,transparent 1px);
+    background-size:auto,22px 22px;-webkit-mask-image:linear-gradient(#000,transparent 85%);mask-image:linear-gradient(#000,transparent 85%)}
+  .avatar{width:84px;height:84px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;
+    color:#fff;font-weight:800;font-size:1.9rem;letter-spacing:.02em;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:var(--shadow)}
+  .hero h1{font-size:clamp(2.1rem,6vw,3.2rem);margin:0 0 8px;letter-spacing:-.02em}
+  .hero .role{font-size:clamp(1rem,3vw,1.3rem);font-weight:600}
   .hero .role .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .hero .tag{color:var(--muted);margin:14px auto 0;max-width:640px}
-  .cta{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .hero .tag{color:var(--muted);margin:14px auto 0;max-width:660px}
+  .cta{margin-top:26px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
   .btn{display:inline-block;padding:10px 18px;border-radius:10px;font-weight:600;font-size:14px;
-    border:1px solid var(--border);background:var(--surface);color:var(--text)}
+    border:1px solid var(--border);background:var(--surface);color:var(--text);transition:transform .15s}
   .btn.primary{background:var(--accent);color:#fff;border-color:transparent}
-  .btn:hover{text-decoration:none;transform:translateY(-1px);transition:transform .15s}
-  /* sections */
-  section{padding:44px 0;border-top:1px solid var(--border)}
-  section h2{font-size:1.5rem;margin:0 0 6px;letter-spacing:-.01em}
-  section .lead{color:var(--muted);margin:0 0 26px;max-width:720px}
-  .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .btn:hover{text-decoration:none;transform:translateY(-2px)}
+  .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
   .stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;
-    padding:12px 18px;box-shadow:var(--shadow);text-align:center;min-width:120px}
+    padding:12px 18px;box-shadow:var(--shadow);text-align:center;min-width:118px}
   .stat b{display:block;font-size:1.5rem;color:var(--accent)}
   .stat span{font-size:12px;color:var(--muted)}
+
+  /* sections */
+  section{padding:46px 0;border-top:1px solid var(--border)}
+  section h2{font-size:1.5rem;margin:0 0 6px;letter-spacing:-.01em}
+  section .lead{color:var(--muted);margin:0 0 26px;max-width:730px}
+
   /* about */
-  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:8px}
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:8px}
   .pillar{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
   .pillar .ico{font-size:1.3rem}
   .pillar b{display:block;margin:6px 0 2px}
   .pillar span{color:var(--muted);font-size:14px}
+
+  /* architecture */
+  .arch{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+  .arch-row{display:grid;gap:12px}
+  .arch-row.two{grid-template-columns:1fr 1fr}
+  .arch-row.three{grid-template-columns:1fr 1fr 1fr}
+  .node{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 16px;
+    font-weight:600;font-size:14px;box-shadow:var(--shadow)}
+  .node small{display:block;color:var(--muted);font-weight:500;font-size:12.5px;margin-top:2px}
+  .node.accent{border-left:3px solid var(--accent)}
+  .node.accent2{border-left:3px solid var(--accent2)}
+  .arch-group{border:1px dashed var(--border);border-radius:14px;padding:14px 14px 16px;position:relative}
+  .arch-group-label{position:absolute;top:-10px;left:16px;background:var(--bg);padding:0 8px;
+    font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .arch-flow{display:flex;justify-content:space-around;color:var(--muted);font-size:12.5px;font-weight:600}
+  @media(max-width:620px){.arch-row.two,.arch-row.three{grid-template-columns:1fr}.arch-flow{display:none}}
+
   /* portfolio */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
   .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;
-    box-shadow:var(--shadow);display:flex;flex-direction:column}
+    box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+  .card:hover{transform:translateY(-3px);border-color:var(--accent)}
   .card h3{margin:0 0 4px;font-size:1.05rem}
   .card h3 a{color:var(--text)}
   .card p{color:var(--muted);font-size:14px;margin:0 0 12px;flex:1}
   .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-  .tag{background:var(--chip);color:var(--muted);font-size:11.5px;padding:3px 9px;border-radius:20px;
-    font-weight:600}
-  .card .foot{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600}
+  .tag{background:var(--chip);color:var(--muted);font-size:11.5px;padding:3px 9px;border-radius:20px;font-weight:600}
+  .card .foot{font-size:13px;font-weight:600}
+
+  /* case study */
+  .case{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--accent);
+    border-radius:14px;padding:22px 24px;box-shadow:var(--shadow)}
+  .case .kicker{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+  .case h3{margin:6px 0 12px;font-size:1.25rem}
+  .case .qa{display:grid;grid-template-columns:92px 1fr;gap:6px 16px;font-size:14.5px}
+  .case .qa dt{font-weight:700;color:var(--accent2)}
+  .case .qa dd{margin:0;color:var(--muted)}
+  .case .more{margin-top:16px;font-size:14px;font-weight:600}
+  @media(max-width:560px){.case .qa{grid-template-columns:1fr}.case .qa dt{margin-top:8px}}
+
   /* experience */
   .tl{list-style:none;padding:0;margin:0}
   .tl li{display:flex;gap:16px;padding:12px 0;border-bottom:1px dashed var(--border)}
@@ -77,40 +173,52 @@
   .tl .when{color:var(--muted);font-size:13px;min-width:140px;white-space:nowrap}
   .tl .what b{display:block}
   .tl .what span{color:var(--muted);font-size:14px}
+
   /* skills */
   .skills{display:grid;gap:12px}
   .skillrow{display:grid;grid-template-columns:170px 1fr;gap:12px;align-items:start}
   .skillrow .k{font-weight:700;font-size:14px}
   .skillrow .v{display:flex;gap:6px;flex-wrap:wrap}
   @media(max-width:560px){.skillrow{grid-template-columns:1fr}}
+
   /* footer */
-  footer{padding:48px 0 60px;text-align:center;border-top:1px solid var(--border)}
-  footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+  footer{padding:48px 0 64px;text-align:center;border-top:1px solid var(--border)}
+  footer .links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:14px}
   footer small{color:var(--muted);display:block;margin-top:22px}
+
+  /* back to top */
+  #top{position:fixed;right:20px;bottom:20px;width:42px;height:42px;border-radius:50%;
+    background:var(--accent);color:#fff;border:0;cursor:pointer;font-size:18px;box-shadow:var(--shadow);
+    opacity:0;pointer-events:none;transition:opacity .25s;z-index:30}
+  #top.show{opacity:1;pointer-events:auto}
 </style>
 </head>
 <body>
 <nav><div class="wrap">
   <span class="brand">Venu Kurella</span>
-  <span class="links">
-    <a href="#about">About</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+  <span class="right">
+    <span class="links">
+      <a href="#about">About</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </span>
+    <button id="themeBtn" title="Toggle light/dark" aria-label="Toggle light/dark">◐</button>
   </span>
 </div></nav>
 
 <header class="hero"><div class="wrap">
+  <div class="avatar">VK</div>
   <h1>Venu Kurella</h1>
   <div class="role"><span class="grad">Staff / Principal Data Engineer · Data Platform Architect</span></div>
   <p class="tag">21 years building reliable batch &amp; streaming data platforms — and the quality,
      observability, infrastructure, and self-service tooling around them — for global financial institutions.</p>
   <div class="cta">
     <a class="btn primary" href="#portfolio">View portfolio</a>
+    <a class="btn" href="./resume.html">Résumé</a>
     <a class="btn" href="https://github.com/vnugny" target="_blank" rel="noopener">GitHub</a>
     <a class="btn" href="https://www.linkedin.com/in/venu-gopal-kurella-79094617/" target="_blank" rel="noopener">LinkedIn</a>
-    <a class="btn" href="mailto:venugkurella@gmail.com">Email</a>
   </div>
   <div class="badges">
     <div class="stat"><b>21+</b><span>years in data</span></div>
@@ -120,7 +228,7 @@
   </div>
 </div></header>
 
-<section id="about"><div class="wrap">
+<section id="about"><div class="wrap reveal">
   <h2>About</h2>
   <p class="lead">I design, build, and govern enterprise-scale data platforms where correctness,
     lineage, validation, and regulatory confidence are the whole job. Currently at Bloomberg;
@@ -135,12 +243,38 @@
   </div>
 </div></section>
 
-<section id="portfolio"><div class="wrap">
+<section id="architecture"><div class="wrap reveal">
+  <h2>How the portfolio fits together</h2>
+  <p class="lead">The seven repositories aren't disconnected demos — they compose into one platform.
+    Infrastructure provisions the runtime, a self-service layer scaffolds pipelines, batch &amp;
+    streaming pipelines move the data, a quality layer validates and traces them, and a cost
+    optimizer keeps the warehouse honest.</p>
+  <div class="arch">
+    <div class="arch-row two">
+      <div class="node accent">data-platform-iac<small>Terraform · Docker Compose — provisions the runtime</small></div>
+      <div class="node accent">self-service-data-platform<small>scaffold · catalog · connectors — generates pipelines</small></div>
+    </div>
+    <div class="arch-flow"><span>provisions&nbsp;↓</span><span>scaffolds&nbsp;↓</span></div>
+    <div class="arch-group">
+      <div class="arch-group-label">Pipelines</div>
+      <div class="arch-row three">
+        <div class="node">data-lakehouse-pipeline<small>batch medallion · Delta</small></div>
+        <div class="node">realtime-streaming-system<small>Kafka → Spark → ClickHouse</small></div>
+        <div class="node">realtime-options-flow<small>Polygon options streaming</small></div>
+      </div>
+    </div>
+    <div class="arch-flow"><span>↓&nbsp;validated &amp; traced</span><span>↓&nbsp;queries analyzed</span></div>
+    <div class="arch-row two">
+      <div class="node accent2">data-quality-observability<small>Great Expectations · OpenLineage · anomalies</small></div>
+      <div class="node accent2">data-cost-optimizer<small>SQL cost · partition &amp; Z-order advice</small></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="portfolio"><div class="wrap reveal">
   <h2>Modern Data Platform Portfolio</h2>
-  <p class="lead">Seven public, CI-verified projects that fit together as one platform — infrastructure
-    provisions the runtime, a self-service layer generates pipelines, batch &amp; streaming pipelines
-    move the data, a quality layer watches them, and a cost optimizer keeps the warehouse honest.
-    Every project runs end-to-end and is verified in CI (~190 tests total).</p>
+  <p class="lead">Seven public, CI-verified projects. Every one runs end-to-end and is verified in
+    GitHub Actions on each push (~190 tests total) — not slideware.</p>
   <div class="grid">
     <div class="card">
       <h3><a href="https://github.com/vnugny/data-lakehouse-pipeline" target="_blank" rel="noopener">data-lakehouse-pipeline</a></h3>
@@ -187,7 +321,24 @@
   </div>
 </div></section>
 
-<section id="experience"><div class="wrap">
+<section id="casestudy"><div class="wrap reveal">
+  <h2>Deep dive</h2>
+  <div class="case">
+    <div class="kicker">Case study · realtime-options-flow</div>
+    <h3>Making a streaming pipeline testable when the data feed costs money</h3>
+    <dl class="qa">
+      <dt>Problem</dt>
+      <dd>The pipeline's whole point is a paid, authenticated, real-time market-data WebSocket — which doesn't exist on a CI runner. Mocking the transport encodes today's guess about the wire format and rots silently the moment the feed drifts.</dd>
+      <dt>Approach</dt>
+      <dd>Split the producer into two interchangeable sources behind one event contract: a live Polygon feed and a synthetic generator that emits the <em>same</em> raw OCC-symbol wire format. Both run the identical parse → enrich → publish path; malformed events route to a dead-letter queue.</dd>
+      <dt>Result</dt>
+      <dd>One flag switches sources. CI runs the real Kafka + Spark job on the synthetic feed — 200 events/sec, no key, no market hours, no flake — exercising the actual parsing and math on every push. Anyone can <code>make up</code> and watch it work in minutes.</dd>
+    </dl>
+    <div class="more"><a href="https://github.com/vnugny/realtime-options-flow" target="_blank" rel="noopener">See the code →</a></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap reveal">
   <h2>Experience</h2>
   <p class="lead">21 years across global financial institutions and Fortune 500 firms.</p>
   <ul class="tl">
@@ -202,7 +353,7 @@
   </ul>
 </div></section>
 
-<section id="skills"><div class="wrap">
+<section id="skills"><div class="wrap reveal">
   <h2>Technical skills</h2>
   <div class="skills">
     <div class="skillrow"><div class="k">Data platforms</div><div class="v"><span class="tag">Snowflake</span><span class="tag">Redshift</span><span class="tag">Delta Lake</span><span class="tag">ClickHouse</span><span class="tag">Trino</span><span class="tag">PostgreSQL</span><span class="tag">Oracle</span><span class="tag">Teradata</span></div></div>
@@ -214,7 +365,7 @@
   </div>
 </div></section>
 
-<footer id="contact"><div class="wrap">
+<footer id="contact"><div class="wrap reveal">
   <h2>Let's talk</h2>
   <p class="lead" style="margin:8px auto 0">Open to <b>Staff / Principal / Senior Data Engineer</b> and
     <b>Data Platform Architect</b> roles. Glad to talk data platforms, streaming, data quality, or financial-data systems.</p>
@@ -227,9 +378,32 @@
     <a href="tel:+17326104341">☎️ (732) 610-4341</a>
     <a href="tel:+12232377457">☎️ (223) 237-7457</a>
     <a href="https://www.linkedin.com/in/venu-gopal-kurella-79094617/" target="_blank" rel="noopener">💼 LinkedIn</a>
+    <a href="./resume.html">📄 Résumé</a>
     <a href="https://github.com/vnugny" target="_blank" rel="noopener">💻 github.com/vnugny</a>
   </div>
   <small>* ~60% data-incident reduction and &gt;95% validation pass rates measured at Bloomberg. Detailed resume available on request.</small>
 </div></footer>
+
+<button id="top" title="Back to top" aria-label="Back to top">↑</button>
+
+<script>
+  // theme toggle
+  var btn=document.getElementById('themeBtn');
+  function current(){var d=document.documentElement.getAttribute('data-theme');
+    if(d)return d; return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+  btn.addEventListener('click',function(){
+    var next=current()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  // back to top
+  var top=document.getElementById('top');
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  addEventListener('scroll',function(){top.classList.toggle('show',scrollY>500);});
+</script>
 </body>
 </html>
